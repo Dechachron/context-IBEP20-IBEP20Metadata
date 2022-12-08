@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
+import "github.com/Dechachron/Library-SafeMath/blob/main/Library%20safemath.sol";
+
 contract BEP20 is Context, IBEP20, IBEP20Metadata {
     using SafeMath for uint256;
     mapping(address => uint256) private _balances;
