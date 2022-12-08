@@ -1,6 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
+import "github.com/Dechachron/IBEP20-Interface/blob/main/IBEP20.sol";
+import "github.com/Dechachron/Abstract/blob/main/abstract.sol";
+import "github.com/Dechachron/Ownable/blob/main/Ownable.sol";
 import "github.com/Dechachron/Library-SafeMath/blob/main/Library%20safemath.sol";
 
 contract BEP20 is Context, IBEP20, IBEP20Metadata {
