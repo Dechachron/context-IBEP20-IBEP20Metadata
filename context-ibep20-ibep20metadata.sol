@@ -19,10 +19,17 @@ contract BEP20 is Context, IBEP20, IBEP20Metadata {
         _symbol = symbol_;
     }
 
+    /**
+     * @dev Returns the name of the token.
+     */
     function name() public view virtual override returns (string memory) {
         return _name;
     }
- 
+
+    /**
+     * @dev Returns the symbol of the token, usually a shorter version of the
+     * name.
+     */
     function symbol() public view virtual override returns (string memory) {
         return _symbol;
     }
@@ -31,13 +38,20 @@ contract BEP20 is Context, IBEP20, IBEP20Metadata {
         return 18;
     }
 
+    /**
+     * @dev See {IBEP20-totalSupply}.
+     */
     function totalSupply() public view virtual override returns (uint256) {
         return _totalSupply;
     }
 
+    /**
+     * @dev See {IBEP20-balanceOf}.
+     */
     function balanceOf(address account) public view virtual override returns (uint256) {
         return _balances[account];
     }
+
 
     function transfer(address recipient, uint256 amount) public virtual override returns (bool) {
         _transfer(_msgSender(), recipient, amount);
@@ -132,19 +146,4 @@ contract BEP20 is Context, IBEP20, IBEP20Metadata {
         address to,
         uint256 amount
     ) internal virtual {}
-}
-
-interface DividendPayingTokenInterface 
-{
-  function dividendOf(address _owner) external view returns(uint256);
-  function withdrawDividend() external;
-  event DividendsDistributed(
-    address indexed from,
-    uint256 weiAmount
-  );
-
-  event DividendWithdrawn(
-    address indexed to,
-    uint256 weiAmount
-  );
 }
